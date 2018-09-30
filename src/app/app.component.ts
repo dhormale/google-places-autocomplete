@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -14,20 +14,26 @@ export class AppComponent {
   city: string;
   state: string;
   zip: string;
+  phone: string;
+
+  constructor(public zone: NgZone) { }
 
   getAddress(place: Object) {
-    this.address = place['address_components'];
+    this.address = place['formatted_address'];
 
     this.streetNumber = this.getStreetNumber(place);
     this.streetName = this.getStreet(place);
     this.city = this.getCity(place);
     this.state = this.getState(place);
     this.zip = this.getPostCode(place);
+    this.phone = this.getPhone(place);
 
     this.formattedAddress = place['formatted_address'];
+    this.zone.run(() => this.formattedAddress = place['formatted_address']);
+
   }
 
- getAddrComponent(place, componentTemplate) {
+  getAddrComponent(place, componentTemplate) {
     let result;
 
     for (let i = 0; i < place.address_components.length; i++) {
@@ -88,6 +94,11 @@ export class AppComponent {
     return postCode;
   }
 
+  getPhone(place) {
+    const COMPONENT_TEMPLATE = { postal_code: 'phone' },
+      phone = this.getAddrComponent(place, COMPONENT_TEMPLATE);
+    return phone;
+  }
 
 
 }

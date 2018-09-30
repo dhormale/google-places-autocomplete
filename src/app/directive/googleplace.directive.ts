@@ -12,22 +12,22 @@ declare var google: any;
 })
 export class GoogleplaceDirective  {
   @Output() setAddress: EventEmitter<any> = new EventEmitter();
-  modelValue:any;
-  autocomplete:any;
-  private _el:HTMLElement;
+  modelValue: any;
+  autocomplete: any;
+  private _el: HTMLElement;
 
-  constructor(el: ElementRef,private model:NgModel) {
+  constructor(el: ElementRef, private model: NgModel) {
     this._el = el.nativeElement;
     this.modelValue = this.model;
-    var input = this._el;
+    const input = this._el;
     this.autocomplete = new google.maps.places.Autocomplete(input, {});
-    google.maps.event.addListener(this.autocomplete, 'place_changed', ()=> {
-      var place = this.autocomplete.getPlace();
+    google.maps.event.addListener(this.autocomplete, 'place_changed', () => {
+      const place = this.autocomplete.getPlace();
       this.invokeEvent(place);
     });
   }
 
-  invokeEvent(place:Object) {
+  invokeEvent(place: Object) {
     this.setAddress.emit(place);
   }
 

@@ -1,6 +1,6 @@
 <p>
-  Start editing to see some magic happen :)
+  Start typing address...
 </p>
-<input type="text" [(ngModel)] = "address"  (setAddress) = "getAddress($event)" googleplace/>
+<input type="text" [(ngModel)] = "address"  (setAddress) = "getAddress($event)" googleplace autocomplete="off"/>
 
 <h3>{{formattedAddress}}</h3>
