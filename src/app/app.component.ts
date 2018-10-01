@@ -6,56 +6,32 @@ import { Component, NgZone } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  address: Object;
-  establishmentAddress: Object;
+
   addressComp: Object;
+  establishmentAddressComp: Object;
 
-  formattedAddress: string;
-  formattedEstablishmentAddress: string;
   formattedAddressComp: string;
+  formattedEstablishmentAddressComp: string;
 
-  streetNumber: string;
-  streetName: string;
-  city: string;
-  state: string;
-  zip: string;
   phone: string;
 
   constructor(public zone: NgZone) { }
 
-  getAddress(place: Object) {
-    this.address = place['formatted_address'];
-
-    this.streetNumber = this.getStreetNumber(place);
-    this.streetName = this.getStreet(place);
-    this.city = this.getCity(place);
-    this.state = this.getState(place);
-    this.zip = this.getPostCode(place);
-    this.phone = this.getPhone(place);
-
-    this.formattedAddress = place['formatted_address'];
-    this.zone.run(() => this.formattedAddress = place['formatted_address']);
-
-  }
-
-  getEstablishmentAddress(place: Object) {
-    this.establishmentAddress = place['formatted_address'];
-
-    this.phone = this.getPhone(place);
-
-    this.formattedEstablishmentAddress = place['formatted_address'];
-    this.zone.run(() => this.formattedEstablishmentAddress = place['formatted_address']);
-
-  }
-
-  getAddressFromComp(place: any) {
+  getAddressFromComp(place: object) {
     this.addressComp = place['formatted_address'];
-
     this.phone = this.getPhone(place);
-
     this.formattedAddressComp = place['formatted_address'];
     this.zone.run(() => this.formattedAddressComp = place['formatted_address']);
+  }
 
+  getEstablishmentAddressFromComp(place: object) {
+    this.establishmentAddressComp = place['formatted_address'];
+    this.phone = this.getPhone(place);
+    this.formattedEstablishmentAddressComp = place['formatted_address'];
+    this.zone.run(() => {
+      this.formattedEstablishmentAddressComp = place['formatted_address'];
+      this.phone = place['formatted_phone_number'];
+    });
   }
 
   getAddrComponent(place, componentTemplate) {
@@ -120,7 +96,7 @@ export class AppComponent {
   }
 
   getPhone(place) {
-    const COMPONENT_TEMPLATE = { postal_code: 'phone' },
+    const COMPONENT_TEMPLATE = { formatted_phone_number: 'formatted_phone_number' },
       phone = this.getAddrComponent(place, COMPONENT_TEMPLATE);
     return phone;
   }

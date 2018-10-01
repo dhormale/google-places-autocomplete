@@ -1,16 +1,14 @@
+<h1>
+  Google Places Autocomplete
+</h1>
 <p>
-  Start typing address...
+  
+<p>
+  <AutocompleteComponent (setAddress)="getAddressFromComp($event)" adressType="address"></AutocompleteComponent>
 </p>
-<input type="text" [(ngModel)] = "address"  (setAddress) = "getAddress($event)" googleplace adressType="address" autocomplete="off"/>
-<br>
-<h3>{{formattedAddress}}</h3>
-<br>
-<br>
-<input type="text" [(ngModel)] = "establishmentAddress"  (setAddress) = "getEstablishmentAddress($event)" googleplace adressType="establishment" autocomplete="off"/>
-<br>
-<h3>{{formattedEstablishmentAddress}}</h3>
-<br>
-<br>
-<autocomplete (setAddress) = "getAddressFromComp($event)"></autocomplete>
-<br>
 <h3>{{formattedAddressComp}}</h3>
+<p>
+  <AutocompleteComponent (setAddress)="getEstablishmentAddressFromComp($event)" adressType="establishment"></AutocompleteComponent>
+</p>
+<h3>{{formattedEstablishmentAddressComp}}</h3>
+<h3>{{phone}}</h3>
