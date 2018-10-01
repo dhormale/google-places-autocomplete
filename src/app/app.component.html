@@ -1,6 +1,16 @@
 <p>
   Start typing address...
 </p>
-<input type="text" [(ngModel)] = "address"  (setAddress) = "getAddress($event)" googleplace autocomplete="off"/>
-
+<input type="text" [(ngModel)] = "address"  (setAddress) = "getAddress($event)" googleplace adressType="address" autocomplete="off"/>
+<br>
 <h3>{{formattedAddress}}</h3>
+<br>
+<br>
+<input type="text" [(ngModel)] = "establishmentAddress"  (setAddress) = "getEstablishmentAddress($event)" googleplace adressType="establishment" autocomplete="off"/>
+<br>
+<h3>{{formattedEstablishmentAddress}}</h3>
+<br>
+<br>
+<autocomplete (setAddress) = "getAddressFromComp($event)"></autocomplete>
+<br>
+<h3>{{formattedAddressComp}}</h3>
