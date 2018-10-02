@@ -1,14 +1,22 @@
 <h1>
   Google Places Autocomplete
 </h1>
-<p>
-  
-<p>
-  <AutocompleteComponent (setAddress)="getAddressFromComp($event)" adressType="address"></AutocompleteComponent>
-</p>
-<h3>{{formattedAddressComp}}</h3>
-<p>
-  <AutocompleteComponent (setAddress)="getEstablishmentAddressFromComp($event)" adressType="establishment"></AutocompleteComponent>
-</p>
-<h3>{{formattedEstablishmentAddressComp}}</h3>
-<h3>{{phone}}</h3>
+<div>
+  <h2>Home Address:</h2>
+
+  <p>
+    <AutocompleteComponent (setAddress)="getAddress($event)" adressType="geocode"></AutocompleteComponent>
+  </p>
+
+  <b>Address: </b> {{formattedAddressComp}}
+  <br><br>
+  <h2>Office Address:</h2>
+
+  <p>
+    <AutocompleteComponent (setAddress)="getEstablishmentAddress($event)" adressType="establishment"></AutocompleteComponent>
+  </p>
+  <b>Address:</b> {{formattedEstablishmentAddressComp}}
+  <br>
+  <b>Phone:</b> {{phone}}
+
+</div>

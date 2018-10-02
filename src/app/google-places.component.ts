@@ -8,7 +8,7 @@ import { } from '@types/googlemaps';
       <input class="input"
         type="text"
         [(ngModel)]="autocompleteInput"
-        #addresstext
+        #addresstext style="padding: 12px 20px; border: 1px solid #ccc; width: 400px"
         >
     `,
 })
@@ -34,7 +34,7 @@ export class AutocompleteComponent implements OnInit, AfterViewInit {
         const autocomplete = new google.maps.places.Autocomplete(this.addresstext.nativeElement,
             {
                 componentRestrictions: { country: 'US' },
-                types: [this.adressType]  // 'establishment' / 'address'
+                types: [this.adressType]  // 'establishment' / 'address' / 'geocode'
             });
         google.maps.event.addListener(autocomplete, 'place_changed', () => {
             const place = autocomplete.getPlace();

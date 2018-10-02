@@ -7,29 +7,29 @@ import { Component, NgZone } from '@angular/core';
 })
 export class AppComponent {
 
-  addressComp: Object;
-  establishmentAddressComp: Object;
+  address: Object;
+  establishmentAddress: Object;
 
-  formattedAddressComp: string;
-  formattedEstablishmentAddressComp: string;
+  formattedAddress: string;
+  formattedEstablishmentAddress: string;
 
   phone: string;
 
   constructor(public zone: NgZone) { }
 
-  getAddressFromComp(place: object) {
-    this.addressComp = place['formatted_address'];
+  getAddress(place: object) {
+    this.address = place['formatted_address'];
     this.phone = this.getPhone(place);
-    this.formattedAddressComp = place['formatted_address'];
-    this.zone.run(() => this.formattedAddressComp = place['formatted_address']);
+    this.formattedAddress = place['formatted_address'];
+    this.zone.run(() => this.formattedAddress = place['formatted_address']);
   }
 
-  getEstablishmentAddressFromComp(place: object) {
-    this.establishmentAddressComp = place['formatted_address'];
+  getEstablishmentAddress(place: object) {
+    this.establishmentAddress = place['formatted_address'];
     this.phone = this.getPhone(place);
-    this.formattedEstablishmentAddressComp = place['formatted_address'];
+    this.formattedEstablishmentAddress = place['formatted_address'];
     this.zone.run(() => {
-      this.formattedEstablishmentAddressComp = place['formatted_address'];
+      this.formattedEstablishmentAddress = place['formatted_address'];
       this.phone = place['formatted_phone_number'];
     });
   }
