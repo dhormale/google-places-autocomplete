@@ -8,14 +8,14 @@
     <AutocompleteComponent (setAddress)="getAddress($event)" adressType="geocode"></AutocompleteComponent>
   </p>
 
-  <b>Address: </b> {{formattedAddressComp}}
+  <b>Address: </b> {{formattedAddress}}
   <br><br>
   <h2>Office Address:</h2>
 
   <p>
     <AutocompleteComponent (setAddress)="getEstablishmentAddress($event)" adressType="establishment"></AutocompleteComponent>
   </p>
-  <b>Address:</b> {{formattedEstablishmentAddressComp}}
+  <b>Address:</b> {{formattedEstablishmentAddress}}
   <br>
   <b>Phone:</b> {{phone}}
 
