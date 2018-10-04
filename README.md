@@ -1,4 +1,5 @@
-# Running example: https://dhormale.github.io/google-places-autocomplete/
+# Running example: 
+https://dhormale.github.io/google-places-autocomplete/
 
 It’s effortless with Google Places API to add addresses in seconds against traditional inputs accepting Street Number, Street Name, City, State, Zip.
 
