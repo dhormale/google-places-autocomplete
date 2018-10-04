@@ -1,6 +1,9 @@
 # Running example: 
 https://dhormale.github.io/google-places-autocomplete/
 
+https://medium.com/@dhormale/use-google-places-api-autocomplete-using-angular-for-resident-and-office-address-23cc33078e8
+
+
 It’s effortless with Google Places API to add addresses in seconds against traditional inputs accepting Street Number, Street Name, City, State, Zip.
 
 Google Autocomplete showed almost 20% time savings and error reduction on mobile. You save time by no longer dealing with incorrect addresses and the resulting problems.
