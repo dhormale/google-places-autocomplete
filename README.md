@@ -1,27 +1,27 @@
-# PlacesAutocomplete
+# Running example: https://dhormale.github.io/google-places-autocomplete/
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+It’s effortless with Google Places API to add addresses in seconds against traditional inputs accepting Street Number, Street Name, City, State, Zip.
 
-## Development server
+Google Autocomplete showed almost 20% time savings and error reduction on mobile. You save time by no longer dealing with incorrect addresses and the resulting problems.
+There are multiple ways in Angular 2+ to implement google places API’s. Following steps shows how we can create a reusable component that can be used to autocomplete address.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Step 1: Install type/googlemaps
 
-## Code scaffolding
+```npm install --save @types/googlemaps```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Steps 2: Add google API in index.html with own key
 
-## Build
+```<script src=”https://maps.googleapis.com/maps/api/js?libraries=places&key=GOOGLE_KEY"></script>```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Step 3: Create a component like google-places.component.ts
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Step 4: Use AutocompleteComponent with adressType input.
 
-## Running end-to-end tests
+For Residential Address:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```<AutocompleteComponent (setAddress)="getAddress($event)" adressType="geocode"></AutocompleteComponent>```
 
-## Further help
+For Office Address:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```<AutocompleteComponent (setAddress)="getEstablishmentAddress($event)" adressType="establishment"></AutocompleteComponent>```
